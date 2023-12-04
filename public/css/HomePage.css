@@ -1,0 +1,92 @@
+/* styles.css */
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #3498db;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+p {
+    font-size: 1rem;
+}
+
+main {
+    padding: 10px;
+}
+
+.user-options {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.user-options h2 {
+    font-size: 1.2rem;
+}
+
+.options {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.options a {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 5px;
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.options a:hover {
+    background-color: #2980b9;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    .options a {
+        padding: 8px 12px;
+        margin: 3px;
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    p {
+        font-size: 0.8rem;
+    }
+
+    .options a {
+        padding: 6px 10px;
+        margin: 2px;
+        font-size: 0.7rem;
+    }
+}

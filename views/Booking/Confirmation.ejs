@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/Confirmation.css">
+    <title>Booking Confirmation</title>
+</head>
+<body>
+    <header>
+        <h1>Booking Confirmation</h1>
+    </header>
+
+    <main>
+        <div class="confirmation-message">
+            <h2>Congratulations!</h2>
+            <p>Your booking has been successfully confirmed.</p>
+            <p>Departure Details:</p>
+            <p><strong>Start Station:</strong> <%= bus.start %></p>
+            <p><strong>End Station:</strong> <%= bus.end %></p>
+            <p><strong>Departure Time:</strong> <%= bus.startTime %></p>
+            <a href="/logout" class="logout-btn">Logout</a>
+        </div>
+    </main>
+</body>
+</html>

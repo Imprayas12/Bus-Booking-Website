@@ -6,6 +6,7 @@ const mongoose = require('mongoose')
 const session = require('express-session');
 
 const User = require('./Models/User')
+const Bus = require('./Models/Bus')
 const PORT = process.env.PORT || 8080
 const DB_URI = process.env.DB_URI || 'mongodb://127.0.0.1:27017/bus-Ticket-Software'
 
@@ -95,9 +96,44 @@ app.post('/login', async (req, res) => {
 
 
 app.get('/booking/dashboard', isAuthenticated, (req, res) => {
-    res.render('Booking/Dashboard');
+    res.render('Booking/Dashboard', { routes: [] });
 })
 
+
+app.post('/booking/dashboard', isAuthenticated, async (req, res) => {
+    const source = req.body.source;
+    const destination = req.body.destination;
+    console.log(source, destination);
+    const routes = await Bus.find({
+        start: source,
+        end: destination
+    }).exec();
+    res.render('Booking/Dashboard', { routes: routes });
+})
+
+
+app.get('/book/:busid', isAuthenticated, async (req, res) => {
+    const id = req.params.busid;
+    const bus = await Bus.findById(id).exec();
+    res.render('Booking/BookingPage', { bus });
+})
+
+app.get('/confirmBooking/:busid', isAuthenticated, async (req, res) => {
+    const id = req.params.busid;
+    const bus = await Bus.findById(id).exec();
+    res.render('Booking/Confirmation', { bus });
+})
+
+app.get('/logout', function (req, res, next) {
+    req.session.user = null
+    req.session.save(function (err) {
+        if (err) next(err)
+        req.session.regenerate(function (err) {
+            if (err) next(err)
+            res.redirect('/')
+        })
+    })
+})
 
 app.listen(PORT, () => {
     console.log(`Server running on PORT : ${PORT}`)

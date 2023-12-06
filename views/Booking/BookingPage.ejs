@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/BookingPage.css">
+    <title>Booking Page</title>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div>
+                <h1> <%= user %></h1>
+            </div>
+            <div>
+                <h1>Bus Details</h1>
+            </div>
+            <div>
+                <a href="/logout" class="logout-btn">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="bus-details">
+            <h2>Bus Route</h2>
+            <p><strong>Start:</strong> <%= bus.start %></p>
+            <p><strong>End:</strong> <%= bus.end %></p>
+            <p><strong>Price:</strong> &#8377; <%= bus.price %></p>
+            <p><strong>Start Time:</strong> <%= bus.startTime %></p>
+            <p><strong>End Time:</strong> <%= bus.endTime %></p>
+
+            <a href="/confirmBooking/<%= bus._id %>" class="book-btn">Book Now</a>
+        </div>
+    </main>
+</body>
+</html>
